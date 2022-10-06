@@ -137,7 +137,8 @@ button {
 .delete{
   position: absolute;
   right: 0px;
-  margin: 25px 20px;
+  margin-top: 20px;
+  margin-right: 5px;
   display: flex;
   /* flex-direction: row; */
   justify-content: end;
