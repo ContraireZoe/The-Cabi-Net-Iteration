@@ -6,7 +6,9 @@ import { userActionCreator, logOutActionCreator } from '../actions/actions'
 import MainContainer from './MainContainer.jsx';
 import { connect, useStore, useDispatch } from 'react-redux';
 import '../style.css';
-import { Cookies, useCookies } from 'react-cookie'
+import { Cookies, useCookies } from 'react-cookie';
+
+
 
 export default function App() {
   const [username, setUsername] = useState('');

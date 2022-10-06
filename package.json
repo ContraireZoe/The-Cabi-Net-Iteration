@@ -27,6 +27,7 @@
     "pg": "^8.8.0",
     "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
     "redux": "^4.2.0",
