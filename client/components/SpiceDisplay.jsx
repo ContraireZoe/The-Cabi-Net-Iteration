@@ -39,14 +39,16 @@ const SpiceDisplay = (props) => {
         <div className='spice-display'>
                 <div className='info-display'>
                     <p>
-                    <strong>Spice: {name}  </strong>
+                    <strong>{name}  </strong>
                     <em> Remaining: {remainingPercentage}%  </em>
                     <>Size: {containersize}  </>
                     </p>
                 </div>
-                <input type='number' value={inputValue} onChange={(e) => {setInputValue(e.target.value)}} id={`${id}`}></input>
-                <button className='update' onClick={handleClick}>Update Amount</button>
-                <button className='delete' onClick={handleDel}>Delete</button>
+                <div className="staticFields">
+                    <input type='number' value={inputValue} placeholder="Remaining Amount"onChange={(e) => {setInputValue(e.target.value)}} id={`${id}`}></input>
+                    <button className='update' onClick={handleClick}>Update Amount</button>
+                    <button className='delete' onClick={handleDel}>Delete</button>
+                </div>
         </div>   
     );
 };
