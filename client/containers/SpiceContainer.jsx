@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
 }); 
 
 const SpiceContainer = (props) => {
-
+  //check for isSearching
+  const [ filter, setFilter ] = useState('')
 
   function handleDel(id) {
     fetch('/spice/', {
@@ -68,13 +69,41 @@ const SpiceContainer = (props) => {
     spiceArray.push(<SpiceDisplay name={spice.name} remaining={spice.remaining} containersize={spice.containersize} id={spice.id} updateSpice={handlePatch} deleteSpice={handleDel} key={spice.id}/>)
   });
 
+  //ternary operator for spiceArray vs filteredSpiceArray, checking to see if "is Searching" is active.
+  //isSearching ternary operator for rendering addSpice VS searchSpices in main container?
+    
+  //onChange func spiceArray.filter((spice) => {
+  //  filterBy ? spice.name.includes(filterKey) : true;
+  // spiceArray.push(<SpiceDisplay name={spice.name} remaining={spice.remaining} containersize={spice.containersize} id={spice.id} updateSpice={handlePatch} deleteSpice={handleDel} key={spice.id}/>)
+  // })
+  const filteredArr = [];
+  const spiceArrFilter = (filter) => {
+    props.spiceRack.filter((spice) => {
+      if (spice.name.toLowerCase().includes(filter.toLowerCase())) filteredArr.push(<SpiceDisplay name={spice.name} remaining={spice.remaining} containersize={spice.containersize} id={spice.id} updateSpice={handlePatch} deleteSpice={handleDel} key={spice.id}/>);
+    });
+    console.log("BIGFILTERED: ", filteredArr);
+    return filteredArr;
+  }
+
   return (
     (
-      <div className='spice-container'>
-        { spiceArray }
+      <div className="bigSpiceContainer">
+          <Searchbar filter={filter} setFilter={setFilter} />
+          <div className='spice-container'>
+          {filter.length > 0 ? spiceArrFilter(filter) : spiceArray }
+          </div>
       </div>
     )
   );
 };
+
+function Searchbar({filter, setFilter}) {
+
+  return (
+    <div className="searchDiv">
+      <input type="text" onChange={(e) => setFilter(e.target.value)} value={filter} className="searchBar" placeholder="search cabinet"/>
+    </div>
+  )
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SpiceContainer);
