@@ -25,14 +25,11 @@ const AddSpice = (props) => {
 
   return (
     <div className="add-spice-container">
-      <p><strong className='add-bar'>Add New Spice!</strong></p>
-      <label>Name:</label>  
-      <input type="text" id="name"></input>
-      <label>Container Size:</label>
-      <input type="text" id="containerSize"></input>
-      <label>% Left:</label>
-      <input type="number" id="remaining"></input>
-      <button type="submit" onClick={handleClick}>Add!</button>
+      <p><strong className='add-bar'>Add to your Cabi.net!</strong></p>
+      <input type="text" placeholder="item name" id="name"></input>
+      <input type="text" placeholder="container size"id="containerSize"></input>
+      <input type="number" placeholder="% left" id="remaining"></input>
+      <button className="addBtn" type="submit" onClick={handleClick}>Add!</button>
     </div>
   )
 }
