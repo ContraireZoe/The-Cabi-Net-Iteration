@@ -69,7 +69,9 @@ const MainContainer = (props) => {
     <div>
       <Navbar logout={props.logout}/>
       <AddSpice createSpice={handlePost}/>
+      <div className='spiceContainerDiv'>
       <SpiceContainer />
+      </div>
     </div>
   );
 };

@@ -6,60 +6,31 @@ import { userActionCreator, logOutActionCreator } from '../actions/actions'
 import MainContainer from './MainContainer.jsx';
 import { connect, useStore, useDispatch } from 'react-redux';
 import '../style.css';
-
+import { useCookies } from 'react-cookie'
 
 export default function App() {
   const [username, setUsername] = useState('');
   const [LoggedIn, toggleLoggedIn ] = useState(false);
   const dispatch = useDispatch();
+  const [ cookies, setCookie, removeCookie] = useCookies();
 
-  //this function will be passed down as a prop into <LoginPage />
-	//so when the user clicks on submit/login, the state variable "LoggedIn" will get procced to true here
-  // function loginHandler(username, password) {
-	// 	// setUsername(username);
-  //   // const username = username;
-  //   console.log('loginhandler');
-  //   fetch('/users/login/', {
-  //     method: 'POST',
-  //     credentials: 'include',
-  //     headers: {
-  //       'Accept': "application/json, text/plain, */*",
-  //       'Content-Type': 'application/json',
-  //       'X-Trigger': 'CORS'
-  //     }, 
-  //     body: JSON.stringify(
-  //       {
-  //         username: username,
-  //         password: password
-  //       })
-  //   })
-  //     .then((res)=> {
-  //       console.log('loginHandler: ', res);
-  //       if(res.status === 200){
-  //         setUsername(username)
-	// 	      toggleLoggedIn(true);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log('loginHandler error: ', err);
-  //     })
-	// }
   function loginHandler(username) {
 		setUsername(username);
 		toggleLoggedIn(true);
-    
 	};
 
   const logoutHandler = () => {
     toggleLoggedIn(false);
     dispatch(logOutActionCreator());
   };
-
+  //this runs if logged in is TRUE
   useEffect(() => {
     console.log('LoggedIn');
    if (LoggedIn) dispatch(userActionCreator(username));
   }, [LoggedIn])
 
+  //only runs once
+  
   return (
     <div className='appDiv'>
       {LoggedIn ? <MainContainer isLoggedIn={username !== '' ? true : false} logout={logoutHandler} />: <LoginPage loginHandler={loginHandler} />} 
