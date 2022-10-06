@@ -25,7 +25,7 @@ const AddSpice = (props) => {
 
   return (
     <div className="add-spice-container">
-      <p><strong className='add-bar'>Add to your Cabi.net!</strong></p>
+      <p><strong className='add-bar'>Add to cabi.net!</strong></p>
       <input type="text" placeholder="item name" id="name"></input>
       <input type="text" placeholder="container size"id="containerSize"></input>
       <input type="number" placeholder="% left" id="remaining"></input>
