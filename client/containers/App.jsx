@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {LoginPage} from '../components/Login.jsx';
 // import {Buffer} from 'buffer';
 // Buffer.from('anything','base64');
-import { userActionCreator, logOutActionCreator } from '../actions/actions'
+import { userActionCreator, loggedInActionCreator, logOutActionCreator } from '../actions/actions'
 import MainContainer from './MainContainer.jsx';
 import { connect, useStore, useDispatch } from 'react-redux';
 import '../style.css';
@@ -18,12 +18,15 @@ export default function App() {
 
   function loginHandler(username) {
 		setUsername(username);
+    dispatch(loggedInActionCreator())
 		toggleLoggedIn(true);
 	};
 
   const logoutHandler = () => {
     toggleLoggedIn(false);
     dispatch(logOutActionCreator());
+    removeCookie('LoggedIn')
+    removeCookie('JWT')
   };
   //this runs if logged in is TRUE
   useEffect(() => {
