@@ -109,7 +109,7 @@ span {
 }
 .staticFields{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 5px
 }
 .addBtn{
@@ -118,8 +118,11 @@ span {
   border-color: #64748b;
 }
 .update{
-  background-color: #94a3b8;
-  border-color: #94a3b8;
+  background-color: #2563eb;
+  border-color: #2563eb;
+  border-radius:50%;
+  margin-top: 20px;
+  margin-bottom:20px;
 }
 .delete{
   background-color: red;

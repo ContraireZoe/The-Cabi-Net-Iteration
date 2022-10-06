@@ -46,7 +46,7 @@ const SpiceDisplay = (props) => {
                 </div>
                 <div className="staticFields">
                     <input type='number' value={inputValue} placeholder="% Left"onChange={(e) => {setInputValue(e.target.value)}} id={`${id}`}></input>
-                    <button className='update' onClick={handleClick}>Update</button>
+                    <button className='update' onClick={handleClick}>+</button>
                     <button className='delete' onClick={handleDel}>x</button>
                 </div>
         </div>   
