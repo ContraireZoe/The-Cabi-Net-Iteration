@@ -1,9 +1,12 @@
+const schema = require('./schema/schema');
 const express = require('express');
 // const path = require('path');
 const cookieParser = require('cookie-parser');
 const app = express();
+const express_graphql = require('express-graphql');
 const spicesRouter = require('./routes/spices.js');
 const usersRouter = require('./routes/users.js');
+
 
 const dotenv = require('dotenv');
 //middleware app.use functions
@@ -14,6 +17,28 @@ app.use(cookieParser());
 //routers
 app.use('/spice', spicesRouter);
 app.use('/users', usersRouter);
+
+// Ray
+const log = (req, res, next) => {
+  console.log('IP:', req.ip)
+  next()
+}
+const logAfter = (req, res, next) => {
+  console.log('after resolver')
+  next();
+}
+app.use(log)
+//
+app.use(logAfter);
+
+app.use('/graphql', express_graphql.graphqlHTTP({
+  schema: schema,
+  graphiql: true
+}))
+
+
+
+
 
 
 // ERROR HANDLERS
