@@ -77,6 +77,7 @@ module.exports = {
 		proxy: {
 			'/spice': 'http://localhost:3000/',
 			'/users': 'http://localhost:3000/',
+			'/graphQL': 'http://localhost:3000/',
 		}
 	}
 }
