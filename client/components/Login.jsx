@@ -40,13 +40,13 @@ export function LoginPage (props) {
     <div className ="main">
       <h1>Welcome to CABI.NET</h1>
       <div className="LoginDiv">
-        <h2 id="loginHeader">{signup ? 'Sign Up!' : 'Login'}</h2>
+        <h2 id="loginHeader">{signup ? 'SIGN UP' : 'LOGIN'}</h2>
         <div className="loginForm">
           <input type = "text" placeholder="username" value={username} onChange ={(e) => {setUsername(e.target.value)}} required/>
           <input type = "password" placeholder="Password" value={password} onChange={(e) => {setPassword(e.target.value)}} required/>
         </div>
         <div className="loginSubmitContainer">
-          <input type="submit" onClick={() => {handleClick()}} className="loginButton"/>
+          <button onClick={() => {handleClick()}} className="loginButton">Submit</button>
         </div>
         { signup 
           ? <div> <p>Already have an account?</p><button onClick={() => {toggleSignUp(false)}}>Return to Login</button> </div> 

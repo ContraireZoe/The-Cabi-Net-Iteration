@@ -38,38 +38,6 @@ const spicesReducer = (state = initialState, action) => {
     };
 
     case types.UPDATE_SPICE: {
-      //create copy of spice rack from state
-      console.log('inside UPDATE SPICE reducer');
-      console.log('action payload', action.payload);
-      // let updatedSpiceRack = state.spiceRack.slice();
-      //find updated spice, replace old spice obj with new
-      // console.log("SPICERACKBEFORE: ", updatedSpiceRack)
-      // for (let i = 0; i < updatedSpiceRack.length; i++) {
-      //   let current = updatedSpiceRack[i]
-      //   if (current.id == action.payload.id){
-      //     console.log('update reducer when id = existing id');
-      //     updatedSpiceRack[i].remaining = action.payload.remaining;
-      // } else if (action.payload.name){
-      //       const spice = action.payload;
-      //       console.log('new spice in update spice', spice);
-      //       updatedSpiceRack.push(spice);
-      //     }};
-      // const newSpiceRack = updatedSpiceRack.map(spice => {
-      //   if (spice.id === action.payload.id) {
-      //     spice = {...spice, remaining: action.payload.remaining }
-      //   }
-      // })
-      // console.log("SPICERACK AFTER: ", updatedSpiceRack)
-      // updatedSpiceRack.forEach(spice => {
-      //   if (spice.id === action.payload.id){
-      //     console.log('update reducer when id = existing id');
-      //     spice.remaining = action.payload.remaining;
-      //   } else {
-      //     const spice = action.payload;
-      //     console.log(spice);
-      //     updatedSpiceRack.push(spice);
-      //   }
-      // });
       for (let i = 0; i < state.spiceRack.length; i++) {
         if (state.spiceRack[i] == action.payload.id){
           console.log('update reducer when id = existing id');
